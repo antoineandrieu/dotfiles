@@ -48,3 +48,4 @@ eslint --init
   $ sudo apt install exuberant-ctags
   ```
 ln -s $DIR/dotfiles/vim ~/.config/nvim
+ln  $DIR/dotfiles/alacritty/alacritty.yml .config/alacritty/alacritty.yml
