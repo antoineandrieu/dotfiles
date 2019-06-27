@@ -16,6 +16,9 @@ let g:NERDTreeShowBookmarks=1
 let g:nerdtree_tabs_focus_on_files=1
 let g:NERDTreeWinSize = 35
 let NERDTreeAutoDeleteBuffer = 1
+" Fix interference with vim-tmux-navigator
+let g:NERDTreeMapJumpPrevSibling=""
+let g:NERDTreeMapJumpNextSibling=""
 
 " Tagbar
 autocmd FileType * call tagbar#autoopen(0)
