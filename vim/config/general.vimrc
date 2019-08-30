@@ -1,5 +1,7 @@
 syntax enable
 
+set mouse=a
+
 " Color scheme
 colorscheme molokai
 hi Normal guibg=NONE ctermbg=NONE

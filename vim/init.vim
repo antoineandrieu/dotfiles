@@ -12,8 +12,8 @@ set runtimepath+=~/.vim-config/ftplugin
 " Plugin loading
 call plug#begin('~/.vim/plugged')
 
-" Intellisense engine	
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Language server client
+Plug 'w0rp/ale'
 " File navigator
 Plug 'scrooloose/nerdtree'
 " Display git status on the file navigator

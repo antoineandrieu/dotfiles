@@ -28,7 +28,9 @@ let g:javascript_plugin_flow = 1
 
 let g:javascript_plugin_jsdoc = 1
 
-let g:ale_sign_column_always = 1
 let g:airline#extensions#tagbar#enabled = 1 
 
-let b:ale_fixers = {'json': ['prettier']}
+let g:ale_sign_column_always = 1
+let g:airline#extensions#ale#enabled = 1
+
+let b:ale_fixers = ['remove_trailing_lines', 'trim_whitespace']

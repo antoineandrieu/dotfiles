@@ -1,3 +1,12 @@
 {
-  "coc.preferences.formatOnSaveFiletypes": ["css", "javascript"]
+  "coc.preferences.formatOnSaveFiletypes": ["css", "javascript", "shell"],
+  "javascript.suggestionActions.enabled": false,
+   "languageserver": {
+    "bash": {
+      "command": "bash-language-server",
+      "args": ["start"],
+      "filetypes": ["sh"],
+      "ignoredRootPaths": ["~"]
+    }
+  }
 }

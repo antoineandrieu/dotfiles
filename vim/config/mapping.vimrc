@@ -18,3 +18,5 @@ nnoremap <F5> :edit!<CR>
 
 " Source current file with double F5
 nnoremap <F5><F5> :source %<CR>
+
+nnoremap <F4> :ALEFix<CR>
