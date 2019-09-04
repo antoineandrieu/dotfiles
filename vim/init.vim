@@ -36,6 +36,8 @@ Plug 'alvan/vim-closetag'
 Plug 'gko/vim-coloresque'
 " Unified vim & tmux navigation keys
 Plug 'christoomey/vim-tmux-navigator'
+" Fuzzy finder
+Plug '~/.fzf'
 
 call plug#end()
 

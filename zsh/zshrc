@@ -32,11 +32,16 @@ sudo-command-line() {
         LBUFFER="sudo $LBUFFER"
     fi
 }
+
+fzf() {
+    vim $(~/.fzf/bin/fzf)
+}
 zle -N sudo-command-line
 # Defined shortcut keys: ss
 bindkey "!!" sudo-command-line
 bindkey -M vicmd '!!' sudo-command-line
 
+alias f=fzf
 alias dps="docker ps"
 alias di="docker inspect"
 alias dvi="docker volume inspect"
@@ -57,3 +62,5 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 if [[ ! $TERM =~ screen ]]; then
     exec tmux
 fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
