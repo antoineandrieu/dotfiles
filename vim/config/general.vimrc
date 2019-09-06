@@ -16,6 +16,17 @@ set colorcolumn=79
 " highlight ColorColumn ctermbg=8
 " set autoread
 
+" Better display for messages
+set cmdheight=2
+
+" You will have bad experience for diagnostic messages when it's default 4000.
+set updatetime=300
+
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
+
+" always show signcolumns
+set signcolumn=yes
 set number
 
 "" Encoding
@@ -51,6 +62,7 @@ endif
 " Directories for swp files
 set nobackup
 set noswapfile
+set nowritebackup
 
 set fileformats=unix,dos,mac
 set showcmd

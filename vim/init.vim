@@ -13,7 +13,7 @@ set runtimepath+=~/.vim-config/ftplugin
 call plug#begin('~/.vim/plugged')
 
 " Language server client
-Plug 'w0rp/ale'
+Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
 " File navigator
 Plug 'scrooloose/nerdtree'
 " Display git status on the file navigator
