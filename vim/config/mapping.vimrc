@@ -7,7 +7,7 @@ nnoremap <C-h> <C-W><C-H>
 " Tabs
 nnoremap <Tab> gt
 nnoremap <S-Tab> gT
-nnoremap <S-t> :tabedit<CR>
+nnoremap <S-t> :tabedit<Space>
 
 " Set working directory
 nnoremap <leader>. :lcd %:p:h<CR>
