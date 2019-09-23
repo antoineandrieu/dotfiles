@@ -49,3 +49,4 @@ eslint --init
   ```
 ln -s $DIR/dotfiles/vim ~/.config/nvim
 ln  $DIR/dotfiles/alacritty/alacritty.yml .config/alacritty/alacritty.yml
+ln -s /home/tonio/Sources/dotfiles/zsh/zshrc ~/.zshrc
