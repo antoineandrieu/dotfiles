@@ -7,8 +7,7 @@ nnoremap <C-h> <C-W><C-H>
 " Tabs
 nnoremap <Tab> gt
 nnoremap <S-Tab> gT
-nnoremap <S-t> :tabnew<CR>
-nnoremap <S-e> :tabedit<space>
+nnoremap <S-t> :tabedit<CR>
 
 " Set working directory
 nnoremap <leader>. :lcd %:p:h<CR>
@@ -18,5 +17,3 @@ nnoremap <F5> :edit!<CR>
 
 " Source current file with double F5
 nnoremap <F5><F5> :source %<CR>
-
-nnoremap <F4> :ALEFix<CR>

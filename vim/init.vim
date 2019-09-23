@@ -14,6 +14,8 @@ call plug#begin('~/.vim/plugged')
 
 " Language server client
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+" Coc extenions
+Plug 'neoclide/coc-prettier', {'do': 'yarn install --frozen-lockfile'}
 " File navigator
 Plug 'scrooloose/nerdtree'
 " Display git status on the file navigator
