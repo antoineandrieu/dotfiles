@@ -33,15 +33,15 @@ sudo-command-line() {
     fi
 }
 
-fzf() {
-    vim $(~/.fzf/bin/fzf)
-}
+ fzf-vim() {
+     vim $(~/.fzf/bin/fzf)
+ }
 zle -N sudo-command-line
 # Defined shortcut keys: ss
 bindkey "!!" sudo-command-line
 bindkey -M vicmd '!!' sudo-command-line
 
-alias f=fzf
+alias f=fzf-vim
 alias dps="docker ps"
 alias di="docker inspect"
 alias dvi="docker volume inspect"
