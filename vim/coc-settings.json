@@ -1,6 +1,9 @@
 {
   "coc.preferences.formatOnSaveFiletypes": ["css", "javascript", "shell"],
   "javascript.suggestionActions.enabled": false,
+     "python.jediEnabled": true,
+        "python.linting.pylintEnabled": false,
+        "python.linting.flake8Enabled": true,
    "languageserver": {
     "bash": {
       "command": "bash-language-server",
