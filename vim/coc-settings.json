@@ -1,15 +1,18 @@
 {
-  "coc.preferences.formatOnSaveFiletypes": ["css", "javascript", "shell"],
-  "javascript.suggestionActions.enabled": false,
-     "python.jediEnabled": true,
-        "python.linting.pylintEnabled": false,
-        "python.linting.flake8Enabled": true,
-   "languageserver": {
-    "bash": {
-      "command": "bash-language-server",
-      "args": ["start"],
-      "filetypes": ["sh"],
-      "ignoredRootPaths": ["~"]
-    }
-  }
+	"coc.preferences.formatOnSaveFiletypes": ["css", "javascript", "shell"],
+	"coc.preferences.formatOnType": true,
+	"prettier.tabWidth": 4,
+	"prettier.singleQuote": true,
+	"javascript.suggestionActions.enabled": false,
+	"python.jediEnabled": true,
+	"python.linting.pylintEnabled": false,
+	"python.linting.flake8Enabled": true,
+	"languageserver": {
+		"bash": {
+			"command": "bash-language-server",
+			"args": ["start"],
+			"filetypes": ["sh"],
+			"ignoredRootPaths": ["~"]
+		}
+	}
 }

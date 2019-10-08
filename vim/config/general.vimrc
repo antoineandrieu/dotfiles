@@ -2,6 +2,8 @@ syntax enable
 
 set mouse=a
 
+set nobomb
+
 " Color scheme
 colorscheme molokai
 hi Normal guibg=NONE ctermbg=NONE
