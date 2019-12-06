@@ -1,5 +1,5 @@
 # Setup antigen base directory
-ZSHA_BASE=$HOME/Sources/dotfiles/zsh
+ZSHA_BASE=$HOME/sources/dotfiles/zsh
 
 # source /home/tonio/.local/bin/virtualenvwrapper.sh
 PATH=$PATH:~/.local/bin
