@@ -2,19 +2,21 @@
 ZSHA_BASE=$HOME/sources/dotfiles/zsh
 
 # source /home/tonio/.local/bin/virtualenvwrapper.sh
-PATH=$PATH:~/.local/bin
+PATH=$PATH:~/.local/bin:~/.node/bin
 
 # Load antigen
 source $ZSHA_BASE/antigen.zsh
 
 # Load the oh-my-zsh's library
-antigen use oh-my-zsh lib/
+#antigen use oh-my-zsh lib/
 
 antigen bundle git
 antigen bundle git-flow
 antigen bundle virtualenvwrapper
 
-antigen theme avit
+#antigen theme avit
+ZSH_THEME=avit
+#antigen list | grep $THEME; if [ $? -ne 0 ]; then antigen theme $THEME; fi
 
 antigen apply
 
