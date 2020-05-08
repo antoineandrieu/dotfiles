@@ -1,9 +1,6 @@
 {
-	"coc.preferences.formatOnSaveFiletypes": ["css", "javascript", "shell"],
+	"coc.preferences.formatOnSaveFiletypes": ["css", "javascript", "json", "markdown", "python", "shell"],
 	"coc.preferences.formatOnType": true,
-	"prettier.tabWidth": 4,
-	"prettier.singleQuote": true,
-	"javascript.suggestionActions.enabled": false,
 	"python.jediEnabled": true,
 	"python.linting.pylintEnabled": false,
 	"python.linting.flake8Enabled": true,

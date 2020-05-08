@@ -6,7 +6,7 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
 nnoremap <silent> <F2> :NERDTreeFind<CR>
 noremap <F3> :NERDTreeToggle<CR>
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * NERDTree
+" autocmd VimEnter * NERDTree
 "
 "" Automatically close last tab if its NerdTree tab
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
@@ -21,7 +21,7 @@ let g:NERDTreeMapJumpPrevSibling=""
 let g:NERDTreeMapJumpNextSibling=""
 
 " Tagbar
-autocmd FileType * call tagbar#autoopen(0)
+" autocmd FileType * call tagbar#autoopen(0)
 nmap <silent> <F8> :TagbarToggle<CR>
 
 let g:javascript_plugin_flow = 1
