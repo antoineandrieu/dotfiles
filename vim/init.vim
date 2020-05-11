@@ -14,6 +14,8 @@ call plug#begin('~/.vim/plugged')
 
 " Language server client
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+" Typescript syntax highlighting
+Plug 'leafgarland/typescript-vim'
 " File navigator
 Plug 'scrooloose/nerdtree'
 " Display git status on the file navigator
