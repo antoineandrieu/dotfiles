@@ -1,5 +1,5 @@
 {
-	"coc.preferences.formatOnSaveFiletypes": ["css", "javascript", "json", "markdown", "python", "shell"],
+	"coc.preferences.formatOnSaveFiletypes": ["css", "javascript", "json", "markdown", "python", "shell", "typescript", "typescriptreact"],
 	"coc.preferences.formatOnType": true,
 	"python.jediEnabled": true,
 	"python.linting.pylintEnabled": false,
