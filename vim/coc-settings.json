@@ -1,18 +1,32 @@
 {
-	"coc.preferences.formatOnSaveFiletypes": ["css", "javascript", "shell"],
-	"coc.preferences.formatOnType": true,
-	"prettier.tabWidth": 4,
-	"prettier.singleQuote": true,
-	"javascript.suggestionActions.enabled": false,
-	"python.jediEnabled": true,
-	"python.linting.pylintEnabled": false,
-	"python.linting.flake8Enabled": true,
-	"languageserver": {
-		"bash": {
-			"command": "bash-language-server",
-			"args": ["start"],
-			"filetypes": ["sh"],
-			"ignoredRootPaths": ["~"]
-		}
-	}
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "javascript",
+    "javascriptreact",
+    "shell",
+    "typescript",
+    "typescript.tsx",
+    "typescriptreact",
+    "python",
+    "json",
+    "grahql"
+  ],
+  "coc.preferences.formatOnType": true,
+  "eslint.format.enable": true,
+  "prettier.autoFixOnSave": true,
+  "javascript.suggestionActions.enabled": true,
+  "python.formatting.provider": "black",
+  "python.formatting.blackPath": "/usr/local/bin/black",
+  "python.jediEnabled": true,
+  "python.linting.pylintEnabled": false,
+  "python.sortImports.path": "/usr/local/bin/isort",
+  "python.jediPath": "/home/antoine/.local/lib/python3.8/site-packages",
+  "languageserver": {
+    "bash": {
+      "command": "bash-language-server",
+      "args": ["start"],
+      "filetypes": ["sh"],
+      "ignoredRootPaths": ["~"]
+    }
+  }
 }
