@@ -13,7 +13,7 @@ set runtimepath+=~/.vim-config/ftplugin
 call plug#begin('~/.vim/plugged')
 
 " Language server client
-Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " File navigator
 Plug 'scrooloose/nerdtree'
 " Display git status on the file navigator
@@ -37,8 +37,20 @@ Plug 'gko/vim-coloresque'
 " Unified vim & tmux navigation keys
 Plug 'christoomey/vim-tmux-navigator'
 " Fuzzy finder
-Plug '~/.fzf'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
+" Github Copilot
+Plug 'github/copilot.vim'
+
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+
+Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build', 'branch': 'main' }
+
+
+Plug 'joshdick/onedark.vim'
 call plug#end()
 
 " Load all configuration files
