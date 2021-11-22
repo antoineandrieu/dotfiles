@@ -4,10 +4,13 @@ nnoremap <C-k> <C-W><C-K>
 nnoremap <C-l> <C-W><C-L>
 nnoremap <C-h> <C-W><C-H>
 
-" Tabs
-nnoremap <Tab> gt
-nnoremap <S-Tab> gT
-nnoremap <S-t> :tabedit<Space>
+" Arrow keys for buffer movement
+noremap <c-left> :bp<CR>
+noremap <c-right> :bn<CR>
+
+" Save file
+:noremap <c-s> :w<CR>
+:inoremap <c-s> <Esc>:w<CR>a
 
 " Set working directory
 nnoremap <leader>. :lcd %:p:h<CR>
@@ -17,3 +20,8 @@ nnoremap <F5> :edit!<CR>
 
 " Source current file with double F5
 nnoremap <F5><F5> :source %<CR>
+
+" fzf
+nnoremap <silent> <C-f> :Files<CR>
+nnoremap <silent> <C-m> :Lines<CR>
+nnoremap <silent> <C-b> :BLines<CR>
