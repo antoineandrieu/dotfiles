@@ -21,7 +21,6 @@ let g:NERDTreeMapJumpPrevSibling=""
 let g:NERDTreeMapJumpNextSibling=""
 
 " Tagbar
-autocmd FileType * call tagbar#autoopen(0)
 nmap <silent> <F8> :TagbarToggle<CR>
 
 let g:javascript_plugin_flow = 1
