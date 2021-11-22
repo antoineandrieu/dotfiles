@@ -5,10 +5,12 @@ set mouse=a
 set nobomb
 
 " Color scheme
-colorscheme molokai
+" colorscheme purify
+" set background=dark
+colorscheme onedark
 hi Normal guibg=NONE ctermbg=NONE
-hi LineNr guibg=NONE ctermbg=NONE
-hi LineNr guifg=Grey ctermfg=59
+" hi LineNr guibg=NONE ctermbg=NONE
+" hi LineNr guifg=Grey ctermfg=59
 
 set nocompatible
 set runtimepath+=/home/antoine/.vim-config/ftplugin
@@ -27,7 +29,7 @@ set updatetime=300
 " don't give |ins-completion-menu| messages.
 set shortmess+=c
 
-" always show signcolumns
+" Always show signcolumns
 set signcolumn=yes
 set number
 
@@ -75,3 +77,6 @@ let g:session_directory = "~/.config/nvim/session"
 let g:session_autoload = "yes"
 let g:session_autosave = "yes"
 let g:session_command_aliases = 1
+
+" Change directory to current opened file
+" autocmd BufEnter * lcd %:p:h
