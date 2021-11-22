@@ -1,7 +1,6 @@
 # Setup antigen base directory
-ZSHA_BASE=$HOME/sources/dotfiles/zsh
+ZSHA_BASE=$HOME/Sources/dotfiles/zsh
 
-# source /home/tonio/.local/bin/virtualenvwrapper.sh
 PATH=$PATH:~/.local/bin
 
 # Load antigen
@@ -11,10 +10,9 @@ source $ZSHA_BASE/antigen.zsh
 antigen use oh-my-zsh lib/
 
 antigen bundle git
-antigen bundle git-flow
 antigen bundle virtualenvwrapper
 
-antigen theme avit
+antigen theme blinks
 
 antigen apply
 
@@ -33,15 +31,15 @@ sudo-command-line() {
     fi
 }
 
- fzf-vim() {
-     vim $(~/.fzf/bin/fzf)
- }
+bindkey -s '^f' 'nvim $(fzf)^M'
+bindkey '^a' fzf-cd-widget
 zle -N sudo-command-line
 # Defined shortcut keys: ss
 bindkey "!!" sudo-command-line
 bindkey -M vicmd '!!' sudo-command-line
 
-alias f=fzf-vim
+cdl() { cd "$@" && ls; }
+
 alias dps="docker ps"
 alias di="docker inspect"
 alias dvi="docker volume inspect"
@@ -58,10 +56,11 @@ alias meteo="curl http://wttr.in/Chateauneuf-grasse"
 alias vim="nvim"
 alias gp="git remote | xargs -L1 git push --all"
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
 if [[ ! $TERM =~ screen ]]; then
     exec tmux
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+alias lg='lazygit'
+
+export PATH="$HOME/.poetry/bin:$PATH"
