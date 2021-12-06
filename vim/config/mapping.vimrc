@@ -5,12 +5,15 @@ nnoremap <C-l> <C-W><C-L>
 nnoremap <C-h> <C-W><C-H>
 
 " Arrow keys for buffer movement
-noremap <c-left> :bp<CR>
-noremap <c-right> :bn<CR>
+nnoremap <Tab> :bn<CR>
+nnoremap <S-Tab> :bp<CR>
 
 " Save file
-:noremap <c-s> :w<CR>
-:inoremap <c-s> <Esc>:w<CR>a
+noremap <leader>s :w<CR>
+inoremap <leader>s <Esc>:w<CR>
+
+noremap <leader>q :wqa<CR>
+inoremap <leader>q <Esc>:wqa<CR>
 
 " Set working directory
 nnoremap <leader>. :lcd %:p:h<CR>
@@ -28,7 +31,7 @@ nnoremap <silent> <C-b> :BLines<CR>
 
 
 " Git
-nmap ghp (GitGutterPreviewHunk)
+nmap ghp <Plug>(GitGutterPreviewHunk)
 nmap ghu <Plug>(GitGutterUndoHunk)
 nmap ghs <Plug>(GitGutterStageHunk)
 xmap ghs <Plug>(GitGutterStageHunk)
