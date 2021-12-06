@@ -12,6 +12,9 @@
     "grahql"
   ],
   "coc.preferences.formatOnType": true,
+  "coc.preferences.willSaveHandlerTimeout": 10000,
+  "suggest.enablePreselect": false,
+  "suggest.noselect": true,
   "eslint.format.enable": true,
   "prettier.autoFixOnSave": true,
   "javascript.suggestionActions.enabled": true,

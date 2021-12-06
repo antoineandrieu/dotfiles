@@ -25,3 +25,10 @@ nnoremap <F5><F5> :source %<CR>
 nnoremap <silent> <C-f> :Files<CR>
 nnoremap <silent> <C-m> :Lines<CR>
 nnoremap <silent> <C-b> :BLines<CR>
+
+
+" Git
+nmap ghp (GitGutterPreviewHunk)
+nmap ghu <Plug>(GitGutterUndoHunk)
+nmap ghs <Plug>(GitGutterStageHunk)
+xmap ghs <Plug>(GitGutterStageHunk)
