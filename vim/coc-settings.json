@@ -1,5 +1,6 @@
 {
   "coc.preferences.formatOnSaveFiletypes": [
+    "html",
     "css",
     "javascript",
     "javascriptreact",
@@ -9,7 +10,10 @@
     "typescriptreact",
     "python",
     "json",
-    "grahql"
+    "grahql",
+    "solidity",
+    "rust",
+    "toml"
   ],
   "coc.preferences.formatOnType": true,
   "coc.preferences.willSaveHandlerTimeout": 10000,
@@ -30,6 +34,13 @@
       "args": ["start"],
       "filetypes": ["sh"],
       "ignoredRootPaths": ["~"]
+    },
+    "solidity": {
+      "command": "solidity-language-server",
+      "args": ["--stdio"],
+      "filetypes": ["solidity"],
+      "ignoredRootPaths": ["~"]
     }
-  }
+  },
+  "svelte.enable-ts-plugin": true
 }
