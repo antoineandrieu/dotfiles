@@ -12,7 +12,8 @@ antigen use oh-my-zsh lib/
 antigen bundle git
 antigen bundle virtualenvwrapper
 
-antigen theme blinks
+antigen bundle dracula/zsh
+antigen theme dracula/zsh dracula
 
 antigen apply
 
@@ -64,3 +65,6 @@ fi
 alias lg='lazygit'
 
 export PATH="$HOME/.poetry/bin:$PATH"
+export PATH="/home/antoine/.local/share/solana/install/active_release/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
+. $HOME/.cargo/env
