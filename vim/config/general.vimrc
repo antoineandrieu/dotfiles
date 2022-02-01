@@ -7,7 +7,7 @@ set nobomb
 " Color scheme
 " colorscheme purify
 " set background=dark
-colorscheme onedark
+colorscheme dracula
 hi Normal guibg=NONE ctermbg=NONE
 " hi LineNr guibg=NONE ctermbg=NONE
 " hi LineNr guifg=Grey ctermfg=59

@@ -5,10 +5,6 @@ if empty(glob('~/.vim-config/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-" Load colorschemes & langage specific config
-set runtimepath+=~/.vim-config/colors
-set runtimepath+=~/.vim-config/ftplugin
-
 " Plugin loading
 call plug#begin('~/.vim/plugged')
 
@@ -40,6 +36,11 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
+" Solidity syntax files
+Plug 'tomlion/vim-solidity'
+
+Plug 'dracula/vim', { 'as': 'dracula' }
+
 " Github Copilot
 Plug 'github/copilot.vim'
 
@@ -48,7 +49,6 @@ Plug 'peitalin/vim-jsx-typescript'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 
 Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build', 'branch': 'main' }
-
 
 Plug 'joshdick/onedark.vim'
 call plug#end()
