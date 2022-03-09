@@ -55,6 +55,9 @@ alias dcp="docker-compose pull"
 alias dcr="docker-compose restart"
 alias meteo="curl http://wttr.in/Chateauneuf-grasse"
 alias vim="nvim"
+alias vi="nvim"
+alias v="nvim"
+alias rg="rgrep -n"
 alias gp="git remote | xargs -L1 git push --all"
 
 if [[ ! $TERM =~ screen ]]; then
