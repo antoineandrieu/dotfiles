@@ -15,6 +15,9 @@ inoremap <leader>s <Esc>:w<CR>
 noremap <leader>q :wqa<CR>
 inoremap <leader>q <Esc>:wqa<CR>
 
+noremap <leader>d :bd<CR>
+inoremap <leader>d <Esc>:bd<CR>
+
 " Set working directory
 nnoremap <leader>. :lcd %:p:h<CR>
 
@@ -25,7 +28,7 @@ nnoremap <F5> :edit!<CR>
 nnoremap <F5><F5> :source %<CR>
 
 " fzf
-nnoremap <silent> <C-f> :Files<CR>
+nnoremap <silent> <C-p> :Files<CR>
 nnoremap <silent> <C-m> :Lines<CR>
 nnoremap <silent> <C-b> :BLines<CR>
 
@@ -35,3 +38,10 @@ nmap ghp <Plug>(GitGutterPreviewHunk)
 nmap ghu <Plug>(GitGutterUndoHunk)
 nmap ghs <Plug>(GitGutterStageHunk)
 xmap ghs <Plug>(GitGutterStageHunk)
+
+noremap <silent> <C-S> :update<CR>
+vnoremap <silent> <C-S> <C-C>:update<CR>
+inoremap <silent> <C-S> <C-O>:update<CR>
+
+map <C-c> "+y
+map <C-v> "+p
