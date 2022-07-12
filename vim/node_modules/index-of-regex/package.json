@@ -1,0 +1,29 @@
+{
+  "name": "index-of-regex",
+  "version": "1.0.0",
+  "description": "a tiny utility for indexOf and lastIndexOf methods that accept regexes",
+  "main": "index.js",
+  "scripts": {
+    "pretest": "standard",
+    "test": "ava"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/capaj/index-of-regex.git"
+  },
+  "keywords": [
+    "regex",
+    "indexOf",
+    "utility"
+  ],
+  "author": "capajj@gmail.com\\",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/capaj/index-of-regex/issues"
+  },
+  "homepage": "https://github.com/capaj/index-of-regex#readme",
+  "devDependencies": {
+    "ava": "^0.16.0",
+    "standard": "^8.4.0"
+  }
+}

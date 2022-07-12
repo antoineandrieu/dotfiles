@@ -2,7 +2,6 @@
   "coc.preferences.formatOnSaveFiletypes": [
     "html",
     "css",
-    "javascript",
     "javascriptreact",
     "shell",
     "typescript",
@@ -19,8 +18,10 @@
   "coc.preferences.willSaveHandlerTimeout": 10000,
   "suggest.enablePreselect": false,
   "suggest.noselect": true,
+  "html.filetypes": ["html", "handlebars", "xml"],
+  "html.format.indentHandlebars": true,
   "eslint.format.enable": true,
-  "prettier.autoFixOnSave": true,
+  "prettier.autoFixOnSave": false,
   "javascript.suggestionActions.enabled": true,
   "python.formatting.provider": "black",
   "python.formatting.blackPath": "/usr/local/bin/black",
@@ -40,6 +41,12 @@
       "args": ["--stdio"],
       "filetypes": ["solidity"],
       "ignoredRootPaths": ["~"]
+    },
+    "cairo": {
+      "module": "~/.config/nvim/node_modules/cairo-ls/out/server.js",
+      "args": ["--node-ipc"],
+      "filetypes": ["cairo"],
+      "rootPatterns": [".git/"]
     }
   },
   "svelte.enable-ts-plugin": true

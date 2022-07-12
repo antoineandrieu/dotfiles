@@ -14,7 +14,7 @@ let g:NERDTreeIgnore=['\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__']
 let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
 let g:NERDTreeShowBookmarks=1
 let g:nerdtree_tabs_focus_on_files=1
-let g:NERDTreeWinSize = 35
+let g:NERDTreeWinSize = 25
 let NERDTreeAutoDeleteBuffer = 1
 " Fix interference with vim-tmux-navigator
 let g:NERDTreeMapJumpPrevSibling=""
@@ -70,8 +70,8 @@ inoremap <silent><expr> <c-space> coc#refresh()
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Use `[c` and `]c` to navigate diagnostics
-nmap <silent> [c <Plug>(coc-diagnostic-prev)
-nmap <silent> ]c <Plug>(coc-diagnostic-next)
+nmap <silent> <Leader>p <Plug>(coc-diagnostic-prev)
+nmap <silent> <Leader>n <Plug>(coc-diagnostic-next)
 
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
@@ -133,3 +133,6 @@ let b:coc_suggest_disable = 1
 
 imap <silent><script><expr> <CR> copilot#Accept("\<CR>")
 let g:copilot_no_tab_map = v:true
+
+au BufReadPost *.cairo set filetype=cairo
+au Filetype cairo set syntax=cairo

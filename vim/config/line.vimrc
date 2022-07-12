@@ -1,3 +1,4 @@
+" set statusline+=%F
 " vim-airline
 let g:lightline = {'colorscheme': 'onedark'}
 " " Enable the list of buffers

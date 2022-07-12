@@ -32,8 +32,8 @@ sudo-command-line() {
     fi
 }
 
-bindkey -s '^f' 'nvim $(fzf)^M'
-bindkey '^a' fzf-cd-widget
+bindkey -s '^v' 'nvim $(fzf)^M'
+bindkey '^f' fzf-cd-widget
 zle -N sudo-command-line
 # Defined shortcut keys: ss
 bindkey "!!" sudo-command-line
@@ -48,6 +48,7 @@ alias dni="docker network inspect"
 alias dc="docker-compose"
 alias dcs="docker-compose stop"
 alias dcu="docker-compose up"
+alias dcd="docker-compose down"
 alias dcub="docker-compose up --build"
 alias dcud="docker-compose up -d"
 alias dcl="docker-compose logs -f"
@@ -58,6 +59,7 @@ alias vim="nvim"
 alias vi="nvim"
 alias v="nvim"
 alias rg="rgrep -n"
+alias gv="grep -v"
 alias gp="git remote | xargs -L1 git push --all"
 
 if [[ ! $TERM =~ screen ]]; then
@@ -66,8 +68,6 @@ fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 alias lg='lazygit'
-
-export PATH="$HOME/.poetry/bin:$PATH"
 export PATH="/home/antoine/.local/share/solana/install/active_release/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 . $HOME/.cargo/env
@@ -75,3 +75,15 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Deactivate ctrl-s for vim
+if [[ -t 0 && $- = *i* ]]
+then
+    stty -ixon
+fi
+
+export PATH="$PATH:/home/antoine/.starklings/dist/starklings"
+
+export PATH="$PATH:/home/antoine/.protostar/dist/protostar"
+
+export PATH="$HOME/.poetry/bin:$PATH"
