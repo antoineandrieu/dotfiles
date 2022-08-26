@@ -1,5 +1,5 @@
 # Setup antigen base directory
-ZSHA_BASE=$HOME/Sources/dotfiles/zsh
+ZSHA_BASE=$HOME/sources/dotfiles/zsh
 
 PATH=$PATH:~/.local/bin
 
@@ -69,8 +69,8 @@ fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 alias lg='lazygit'
 export PATH="/home/antoine/.local/share/solana/install/active_release/bin:$PATH"
-export PATH="$HOME/.cargo/bin:$PATH"
-. $HOME/.cargo/env
+#export PATH="$HOME/.cargo/bin:$PATH"
+#. $HOME/.cargo/env
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -87,3 +87,11 @@ export PATH="$PATH:/home/antoine/.starklings/dist/starklings"
 export PATH="$PATH:/home/antoine/.protostar/dist/protostar"
 
 export PATH="$HOME/.poetry/bin:$PATH"
+
+export PATH="$PATH:/usr/local/go/bin"
+
+export PATH="$PATH:$HOME/.local/bin"
+
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv virtualenv-init -)"
