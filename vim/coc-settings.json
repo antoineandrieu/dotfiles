@@ -12,7 +12,9 @@
     "grahql",
     "solidity",
     "rust",
-    "toml"
+    "toml",
+    "cairo",
+    "go"
   ],
   "coc.preferences.formatOnType": true,
   "coc.preferences.willSaveHandlerTimeout": 10000,
