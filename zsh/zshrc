@@ -95,3 +95,5 @@ export PATH="$PATH:$HOME/.local/bin"
 export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init --path)"
 eval "$(pyenv virtualenv-init -)"
+
+eval "$(ssh-agent)" &> /dev/null
