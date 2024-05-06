@@ -41,6 +41,7 @@ bindkey -M vicmd '!!' sudo-command-line
 
 cdl() { cd "$@" && ls; }
 
+alias tm="tmux"
 alias dps="docker ps"
 alias di="docker inspect"
 alias dvi="docker volume inspect"
@@ -60,11 +61,12 @@ alias vi="nvim"
 alias v="nvim"
 alias rg="rgrep -n"
 alias gv="grep -v"
-alias gp="git remote | xargs -L1 git push --all"
+alias gp="git push"
+alias gcs="git checkout staging"
 
-if [[ ! $TERM =~ screen ]]; then
-    exec tmux
-fi
+# if [[ ! $TERM =~ screen ]]; then
+#     exec tmux
+# fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 alias lg='lazygit'
@@ -97,3 +99,27 @@ eval "$(pyenv init --path)"
 eval "$(pyenv virtualenv-init -)"
 
 eval "$(ssh-agent)" &> /dev/null
+added_keys=`ssh-add -l`
+
+if [ ! $(echo $added_keys | grep -o -e github) ]; then
+    ssh-add "$HOME/.ssh/github" &> /dev/null
+fi
+export PNPM_HOME="/home/antoine/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+
+# >>> conda initialize >>>
+# # !! Contents within this block are managed by 'conda init' !!
+# __conda_setup="$('/home/antoine/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__conda_setup"
+# else
+#     if [ -f "/home/antoine/anaconda3/etc/profile.d/conda.sh" ]; then
+#         . "/home/antoine/anaconda3/etc/profile.d/conda.sh"
+#     else
+#         export PATH="/home/antoine/anaconda3/bin:$PATH"
+#     fi
+# fi
+# unset __conda_setup
+# <<< conda initialize <<<
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
