@@ -427,6 +427,10 @@ debug:
 #   - ~AppKeypad
 #   - AppKeypad
 key_bindings:
+  # Ctrl+Tab tmux navigation
+  - { key: Tab, mods: Control, chars: "\x1b[27;5;9~" }
+  - { key: Tab, mods: Control|Shift, chars: "\x1b[27;6;9~" }
+
   - { key: Space, mods: Control, chars: "\x00" }
   # (Windows/Linux only)
   - { key: V,        mods: Control|Shift, action: Paste            }

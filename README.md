@@ -47,6 +47,7 @@ eslint --init
   ```
   $ sudo apt install exuberant-ctags
   ```
+chsh -s $(which zsh)
 ln -s $DIR/dotfiles/vim ~/.config/nvim
 ln  $DIR/dotfiles/alacritty/alacritty.yml .config/alacritty/alacritty.yml
 ln -s /home/tonio/Sources/dotfiles/zsh/zshrc ~/.zshrc
