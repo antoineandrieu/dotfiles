@@ -27,6 +27,7 @@ antigen apply
 case $HOST in
   avon) rprompt_color="green" ;;
   lester) rprompt_color="yellow" ;;
+  jimmy) rprompt_color="magenta" ;;
   *) rprompt_color="cyan" ;;
 esac
 RPROPT="%{%F{$rprompt_color}%}%m%{%f%}"
