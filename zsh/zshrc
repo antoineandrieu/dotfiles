@@ -23,6 +23,14 @@ antigen theme dracula/zsh dracula
 
 antigen apply
 
+# Show hostname on right prompt with machine-specific color
+case $HOST in
+  avon) rprompt_color="green" ;;
+  lester) rprompt_color="yellow" ;;
+  *) rprompt_color="cyan" ;;
+esac
+RPROPT="%{%F{$rprompt_color}%}%m%{%f%}"
+
 sudo-command-line() {
     [[ -z $BUFFER ]] && zle up-history
     if [[ $BUFFER == sudo\ * ]]; then
