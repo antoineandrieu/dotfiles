@@ -77,7 +77,6 @@ alias gcs="git checkout staging"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 alias lg='lazygit'
 # Uncomment and adjust these paths as needed:
-# export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
 # export PATH="$HOME/.cargo/bin:$PATH"
 # . $HOME/.cargo/env
 
@@ -90,10 +89,6 @@ if [[ -t 0 && $- = *i* ]]
 then
     stty -ixon
 fi
-
-# Uncomment and adjust these paths as needed:
-# export PATH="$PATH:$HOME/.starklings/dist/starklings"
-# export PATH="$PATH:$HOME/.protostar/dist/protostar"
 
 export PATH="$HOME/.poetry/bin:$PATH"
 
@@ -114,22 +109,6 @@ if [ ! $(echo $added_keys | grep -o -e github) ]; then
 fi
 export PNPM_HOME="$HOME/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
-
-# Uncomment and adjust for conda:
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-# __conda_setup="$('$HOME/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-# if [ $? -eq 0 ]; then
-#     eval "$__conda_setup"
-# else
-#     if [ -f "$HOME/anaconda3/etc/profile.d/conda.sh" ]; then
-#         . "$HOME/anaconda3/etc/profile.d/conda.sh"
-#     else
-#         export PATH="$HOME/anaconda3/bin:$PATH"
-#     fi
-# fi
-# unset __conda_setup
-# <<< conda initialize <<<
 
 # Uncomment for Linuxbrew on Linux:
 # eval "$('/home/linuxbrew/.linuxbrew/bin/brew' shellenv)"
