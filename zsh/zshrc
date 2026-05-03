@@ -4,7 +4,7 @@ if [ -f "${${(%):-%x}:A:h}/antigen.zsh" ]; then
     ZSHA_BASE="${${(%):-%x}:A:h}"
 else
     # Fallback to default location
-    ZSHA_BASE=$HOME/sources/dotfiles/zsh
+    ZSHA_BASE=$HOME/Sources/perso/dotfiles/zsh
 fi
 
 PATH=$PATH:~/.local/bin
@@ -107,9 +107,11 @@ export PATH="$HOME/.poetry/bin:$PATH"
 
 export PATH="$PATH:$HOME/.local/bin"
 
-export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init --path)"
-eval "$(pyenv virtualenv-init -)"
+if [ -d "$HOME/.pyenv" ]; then
+    export PATH="$HOME/.pyenv/bin:$PATH"
+    eval "$(pyenv init --path)"
+    eval "$(pyenv virtualenv-init -)"
+fi
 
 eval "$(ssh-agent)" &> /dev/null
 added_keys=`ssh-add -l`
