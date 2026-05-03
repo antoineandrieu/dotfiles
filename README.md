@@ -13,12 +13,22 @@ Personal configuration files for Unix-like systems.
 
 ## Requirements
 
-- [Neovim](https://neovim.io/) (v0.5+)
-- [tmux](https://github.com/tmux/tmux)
-- [Alacritty](https://alacritty.org/)
-- [zsh](https://www.zsh.org/)
-- [Git](https://git-scm.com/) in `$PATH`
-- [Node.js](https://nodejs.org/) (for LSP servers)
+### macOS
+```bash
+# Install using Homebrew
+brew install zsh tmux alacritty neovim node
+```
+
+### Linux (Ubuntu/Debian)
+```bash
+sudo apt install zsh tmux neovim nodejs
+# Alacritty: see https://github.com/alacritty/alacritty#packaging-for-linux
+```
+
+### Linux (Arch)
+```bash
+sudo pacman -S zsh tmux alacritty neovim nodejs
+```
 
 ## Quick Install
 
@@ -28,8 +38,11 @@ cd ~/dotfiles
 ./install.sh
 ```
 
-Then install the antigen plugin manager:
+The `install.sh` script auto-detects your OS (macOS/Linux) and provides appropriate instructions.
 
+### Manual Antigen Installation
+
+**macOS/Linux:**
 ```bash
 curl -L git.io/antigen > ~/.antigen.zsh
 ```
@@ -48,9 +61,11 @@ ln -s ~/dotfiles/vim/syntax ~/.config/nvim/syntax
 ln -s ~/dotfiles/vim/autoload ~/.config/nvim/autoload
 ln -s ~/dotfiles/vim/config ~/.config/nvim/config
 
-# Alacritty
+# Alacritty (macOS) or alternative terminal on Linux
 mkdir -p ~/.config/alacritty
 ln -s ~/dotfiles/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml
+# Note: Alacritty on Linux requires manual building or Linuxbrew:
+# Linuxbrew: brew install alacritty
 
 # tmux
 ln -s ~/dotfiles/tmux/tmux.conf ~/.tmux.conf

@@ -1,5 +1,11 @@
-# Setup antigen base directory
-ZSHA_BASE=$HOME/sources/dotfiles/zsh
+# Setup antigen base directory (auto-detect)
+if [ -f "${${(%):-%x}:A:h}/antigen.zsh" ]; then
+    # If zshrc is symlinked, resolve to actual file location
+    ZSHA_BASE="${${(%):-%x}:A:h}"
+else
+    # Fallback to default location
+    ZSHA_BASE=$HOME/sources/dotfiles/zsh
+fi
 
 PATH=$PATH:~/.local/bin
 
