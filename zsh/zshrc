@@ -111,6 +111,11 @@ export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init --path)"
 eval "$(pyenv virtualenv-init -)"
 
+# Virtualenvwrapper configuration
+export WORKON_HOME=$HOME/.virtualenvs
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+
 eval "$(ssh-agent)" &> /dev/null
 added_keys=`ssh-add -l`
 

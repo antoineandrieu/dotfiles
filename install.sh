@@ -67,6 +67,10 @@ if [ "$INSTALL_DEPS" = true ]; then
         echo "Linux detected - installing via apt..."
         sudo -S -p '' apt update
         sudo -S -p '' apt install -y zsh tmux neovim xclip
+        # Install pyenv
+        curl https://pyenv.run | bash
+        # Install virtualenvwrapper
+        sudo -S -p '' apt install -y virtualenvwrapper
         # Try to install alacritty
         if command -v snap &> /dev/null; then
             sudo -S -p '' snap install alacritty --classic
