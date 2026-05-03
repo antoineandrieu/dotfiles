@@ -78,6 +78,7 @@ alias rg="rgrep -n"
 alias gv="grep -v"
 alias gp="git push"
 alias gcs="git checkout staging"
+alias h="hermes"
 
 # if [[ ! $TERM =~ screen ]]; then
 #     exec tmux
