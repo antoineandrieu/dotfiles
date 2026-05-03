@@ -1,6 +1,19 @@
 #!/bin/bash
 set -e
 
+# Parse arguments
+INSTALL_DEPS=false
+for arg in "$@"; do
+    case $arg in
+        --install-deps)
+            INSTALL_DEPS=true
+            shift
+            ;;
+        *)
+            ;;
+    esac
+done
+
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 TARGET=$HOME
 OS="$(uname -s)"
@@ -37,6 +50,39 @@ ln -sf "$DIR/zsh/antigen.zsh" "$TARGET/.antigen.zsh"
 echo ""
 echo "Dotfiles installed successfully!"
 echo ""
+
+# Install dependencies if flag is set
+if [ "$INSTALL_DEPS" = true ]; then
+    echo "=== Installing dependencies ==="
+    if [ "$OS" = "Darwin" ]; then
+        echo "macOS detected - installing via Homebrew..."
+        if ! command -v brew &> /dev/null; then
+            echo "Installing Homebrew..."
+            /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        fi
+        brew install zsh tmux alacritty neovim
+        curl -L git.io/antigen > ~/.antigen.zsh
+        echo "Dependencies installed on macOS."
+    elif [ "$OS" = "Linux" ]; then
+        echo "Linux detected - installing via apt..."
+        sudo -S -p '' apt update
+        sudo -S -p '' apt install -y zsh tmux neovim xclip
+        # Try to install alacritty
+        if command -v snap &> /dev/null; then
+            sudo -S -p '' snap install alacritty --classic
+        elif command -v cargo &> /dev/null; then
+            cargo install alacritty
+        else
+            echo "Alacritty not installed (no snap or cargo). Install manually."
+        fi
+        curl -L git.io/antigen > ~/.antigen.zsh
+        echo "Dependencies installed on Linux."
+    else
+        echo "Unknown OS. Please install manually: zsh, tmux, alacritty, neovim"
+    fi
+    echo ""
+fi
+
 echo "=== Next Steps ==="
 echo ""
 
@@ -72,10 +118,12 @@ echo ""
 echo "  - Install vim plugins:"
 echo "    Open nvim and run: :PlugInstall"
 echo ""
-echo "  - For tmux clipboard support:"
+
 if [ "$OS" = "Darwin" ]; then
+    echo "  - For tmux clipboard support:"
     echo "    pbcopy is included with macOS (already configured)"
 else
+    echo "  - For tmux clipboard support:"
     echo "    Install xclip: sudo apt install xclip"
     echo "    (The tmux config will auto-detect xclip)"
 fi
