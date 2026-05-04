@@ -112,7 +112,10 @@ if [ -d "$HOME/.pyenv" ]; then
     export PATH="$HOME/.pyenv/bin:$PATH"
     if command -v pyenv 1>/dev/null 2>&1; then
         eval "$(pyenv init --path)"
-        eval "$(pyenv virtualenv-init -)"
+        # Only run virtualenv-init if pyenv-virtualenv plugin is installed
+        if pyenv commands 2>/dev/null | grep -q virtualenv-init; then
+            eval "$(pyenv virtualenv-init -)"
+        fi
     fi
 fi
 
