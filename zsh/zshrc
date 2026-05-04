@@ -24,13 +24,21 @@ antigen theme dracula/zsh dracula
 antigen apply
 
 # Show hostname on right prompt with machine-specific color
+# Also add hostname to left prompt for clear machine identification
 case $HOST in
   avon) rprompt_color="green" ;;
   lester) rprompt_color="yellow" ;;
   jimmy) rprompt_color="magenta" ;;
   *) rprompt_color="cyan" ;;
 esac
-RPROPT="%{%F{$rprompt_color}%}%m%{%f%}"
+RPROMPT="%{%F{$rprompt_color}%}%m%{%f%}"
+
+# Add hostname to the main prompt (before the $
+
+# For dracula theme, we need to customize the prompt context
+prompt_context() {
+  echo -n "%{%F{$rprompt_color}%}%m%{%f%}:%{%F{white}%}%c%{%f%}"
+}
 
 sudo-command-line() {
     [[ -z $BUFFER ]] && zle up-history
