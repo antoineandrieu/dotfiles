@@ -24,13 +24,21 @@ antigen theme dracula/zsh dracula
 antigen apply
 
 # Show hostname on right prompt with machine-specific color
+# Also add hostname to left prompt for clear machine identification
 case $HOST in
   avon) rprompt_color="green" ;;
   lester) rprompt_color="yellow" ;;
   jimmy) rprompt_color="magenta" ;;
   *) rprompt_color="cyan" ;;
 esac
-RPROPT="%{%F{$rprompt_color}%}%m%{%f%}"
+RPROMPT="%{%F{$rprompt_color}%}%m%{%f%}"
+
+# Add hostname to the main prompt (before the $
+
+# For dracula theme, we need to customize the prompt context
+prompt_context() {
+  echo -n "%{%F{$rprompt_color}%}%m%{%f%}:%{%F{white}%}%c%{%f%}"
+}
 
 sudo-command-line() {
     [[ -z $BUFFER ]] && zle up-history
@@ -107,10 +115,27 @@ export PATH="$HOME/.poetry/bin:$PATH"
 
 export PATH="$PATH:$HOME/.local/bin"
 
+# Pyenv configuration (add to PATH first, then init if available)
 if [ -d "$HOME/.pyenv" ]; then
     export PATH="$HOME/.pyenv/bin:$PATH"
-    eval "$(pyenv init --path)"
-    eval "$(pyenv virtualenv-init -)"
+    if command -v pyenv 1>/dev/null 2>&1; then
+        eval "$(pyenv init --path)"
+        # Only run virtualenv-init if pyenv-virtualenv plugin is installed
+        if pyenv commands 2>/dev/null | grep -q virtualenv-init; then
+            eval "$(pyenv virtualenv-init -)"
+        fi
+    fi
+fi
+
+# Virtualenvwrapper configuration (only load if available)
+if [ -f /usr/share/virtualenvwrapper/virtualenvwrapper.sh ]; then
+    export WORKON_HOME=$HOME/.virtualenvs
+    export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+    source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+elif [ -f "$HOME/.local/bin/virtualenvwrapper.sh" ]; then
+    export WORKON_HOME=$HOME/.virtualenvs
+    export VIRTUALENVWRAPPER_PYTHON=$HOME/.pyenv/versions/*/bin/python 2>/dev/null || export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+    source "$HOME/.local/bin/virtualenvwrapper.sh"
 fi
 
 eval "$(ssh-agent)" &> /dev/null

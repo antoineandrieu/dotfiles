@@ -67,6 +67,20 @@ if [ "$INSTALL_DEPS" = true ]; then
         echo "Linux detected - installing via apt..."
         sudo -S -p '' apt update
         sudo -S -p '' apt install -y zsh tmux neovim xclip
+        # Install pyenv (safer git clone method)
+        if ! command -v pyenv &> /dev/null; then
+            echo "Installing pyenv..."
+            git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+            echo "pyenv installed. Restart your shell or run: source ~/.zshrc"
+        else
+            echo "pyenv already installed, skipping."
+        fi
+        # Install virtualenvwrapper
+        if ! dpkg -l | grep -q virtualenvwrapper; then
+            sudo apt install -y virtualenvwrapper
+        else
+            echo "virtualenvwrapper already installed, skipping."
+        fi
         # Try to install alacritty
         if command -v snap &> /dev/null; then
             sudo -S -p '' snap install alacritty --classic
