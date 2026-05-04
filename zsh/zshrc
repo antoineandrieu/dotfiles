@@ -107,14 +107,23 @@ export PATH="$HOME/.poetry/bin:$PATH"
 
 export PATH="$PATH:$HOME/.local/bin"
 
-export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init --path)"
-eval "$(pyenv virtualenv-init -)"
+# Pyenv configuration (only load if installed)
+if command -v pyenv 1>/dev/null 2>&1; then
+    export PATH="$HOME/.pyenv/bin:$PATH"
+    eval "$(pyenv init --path)"
+    eval "$(pyenv virtualenv-init -)"
+fi
 
-# Virtualenvwrapper configuration
-export WORKON_HOME=$HOME/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+# Virtualenvwrapper configuration (only load if available)
+if [ -f /usr/share/virtualenvwrapper/virtualenvwrapper.sh ]; then
+    export WORKON_HOME=$HOME/.virtualenvs
+    export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+    source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+elif [ -f "$HOME/.local/bin/virtualenvwrapper.sh" ]; then
+    export WORKON_HOME=$HOME/.virtualenvs
+    export VIRTUALENVWRAPPER_PYTHON=$HOME/.pyenv/versions/*/bin/python 2>/dev/null || export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+    source "$HOME/.local/bin/virtualenvwrapper.sh"
+fi
 
 eval "$(ssh-agent)" &> /dev/null
 added_keys=`ssh-add -l`
