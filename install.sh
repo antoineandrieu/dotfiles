@@ -42,6 +42,7 @@ fi
 
 # Symlink for tmux
 ln -sf "$DIR/tmux/tmux.conf" "$TARGET/.tmux.conf"
+ln -sf "$DIR/tmux/tmux-ssh-status.py" "$TARGET/.tmux-ssh-status.py"
 
 # Symlink for zsh
 ln -sf "$DIR/zsh/zshrc" "$TARGET/.zshrc"
