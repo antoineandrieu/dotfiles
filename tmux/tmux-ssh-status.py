@@ -158,7 +158,7 @@ def segment(kind: str, name: str, accent: str) -> str:
     bg = DRACULA["background"]
     fill = DRACULA["purple"]
     fg = DRACULA["foreground"]
-    label = name.upper()
+    label = name.lower()
 
     # Powerline-style blocks. The separator lands on the purple bar fill,
     # avoiding black gaps after the machine segment. Every color is Dracula.
