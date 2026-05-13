@@ -73,11 +73,12 @@ autoload -Uz add-zsh-hook
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:git:*' formats " %F{$DOTFILES_PROMPT_GIT_COLOR}%b%f"
 zstyle ':vcs_info:git:*' actionformats ' %F{#ffb86c}%b:%a%f'
-_dotfiles_update_vcs_info() { vcs_info }
-add-zsh-hook precmd _dotfiles_update_vcs_info
-
-PROMPT='%F{${DOTFILES_PROMPT_ACCENT}}${DOTFILES_PROMPT_MACHINE}%f$(_dotfiles_venv_prompt) %F{#bd93f9}%~%f${vcs_info_msg_0_} %F{${DOTFILES_PROMPT_ACCENT}}❯%f '
-RPROMPT=''
+_dotfiles_update_prompt() {
+    vcs_info
+    PROMPT='%F{${DOTFILES_PROMPT_ACCENT}}${DOTFILES_PROMPT_MACHINE}%f$(_dotfiles_venv_prompt) %F{#bd93f9}%~%f${vcs_info_msg_0_} %F{${DOTFILES_PROMPT_ACCENT}}❯%f '
+    PS1="$PROMPT"
+    RPROMPT=''
+}
 
 sudo-command-line() {
     [[ -z $BUFFER ]] && zle up-history
@@ -194,3 +195,8 @@ export PATH="$PNPM_HOME:$PATH"
 # opencode
 export PATH=/Users/antoine/.opencode/bin:$PATH
 export HERMES_TUI_RESUME=1
+
+# Re-apply the custom prompt at the end of each prompt render so Cursor,
+# virtualenvwrapper, or Python activation hooks cannot replace it after `cd`.
+add-zsh-hook precmd _dotfiles_update_prompt
+_dotfiles_update_prompt
