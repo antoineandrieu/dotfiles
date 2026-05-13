@@ -47,9 +47,6 @@ ln -sf "$DIR/tmux/tmux.conf" "$TARGET/.tmux.conf"
 ln -sf "$DIR/zsh/zshrc" "$TARGET/.zshrc"
 ln -sf "$DIR/zsh/antigen.zsh" "$TARGET/.antigen.zsh"
 
-# Symlink for bash
-ln -sf "$DIR/bash/bashrc" "$TARGET/.bashrc"
-
 echo ""
 echo "Dotfiles installed successfully!"
 echo ""
