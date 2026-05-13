@@ -57,16 +57,19 @@ _dotfiles_machine_accent() {
 typeset -u DOTFILES_PROMPT_MACHINE
 DOTFILES_PROMPT_MACHINE="$(hostname -s 2>/dev/null || hostname)"
 DOTFILES_PROMPT_ACCENT="$(_dotfiles_machine_accent "$DOTFILES_PROMPT_MACHINE")"
+# Keep the branch readable and distinct from the machine color.
+DOTFILES_PROMPT_GIT_COLOR='#8be9fd' # Dracula cyan
+[[ "$DOTFILES_PROMPT_GIT_COLOR" == "$DOTFILES_PROMPT_ACCENT" ]] && DOTFILES_PROMPT_GIT_COLOR='#50fa7b'
 
 autoload -Uz vcs_info
 autoload -Uz add-zsh-hook
 zstyle ':vcs_info:*' enable git
-zstyle ':vcs_info:git:*' formats ' %F{#50fa7b}%b%f'
+zstyle ':vcs_info:git:*' formats " %F{$DOTFILES_PROMPT_GIT_COLOR}%b%f"
 zstyle ':vcs_info:git:*' actionformats ' %F{#ffb86c}%b:%a%f'
 _dotfiles_update_vcs_info() { vcs_info }
 add-zsh-hook precmd _dotfiles_update_vcs_info
 
-PROMPT='%F{${DOTFILES_PROMPT_ACCENT}}${DOTFILES_PROMPT_MACHINE}%f %F{#bd93f9}%~%f${vcs_info_msg_0_} %(?.%F{#50fa7b}.%F{#ff5555})❯%f '
+PROMPT='%F{${DOTFILES_PROMPT_ACCENT}}${DOTFILES_PROMPT_MACHINE}%f %F{#bd93f9}%~%f${vcs_info_msg_0_} %F{${DOTFILES_PROMPT_ACCENT}}❯%f '
 RPROMPT=''
 
 sudo-command-line() {
