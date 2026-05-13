@@ -3,7 +3,7 @@
 
 The script runs on the local machine from tmux status-left. It inspects the
 active pane process tree, detects an ssh command, extracts its destination, and
-uses a stable hash to assign that destination one of the Dracula accent colors.
+uses the same machine-to-Dracula-accent mapping as the zsh prompt.
 """
 
 from __future__ import annotations
@@ -30,6 +30,12 @@ DRACULA = {
     "yellow": "#f1fa8c",
 }
 
+KNOWN_MACHINE_ACCENTS = {
+    "avon": DRACULA["green"],
+    "jimmy": DRACULA["pink"],
+    "lester": DRACULA["yellow"],
+}
+
 ACCENTS = [
     DRACULA["purple"],
     DRACULA["pink"],
@@ -43,9 +49,27 @@ ACCENTS = [
 SSH_OPTIONS_WITH_VALUE = set("bcDEeFIiJLlmOoPpQRSWw")
 
 
-def stable_accent(name: str) -> str:
-    digest = hashlib.sha1(name.encode("utf-8")).digest()
-    return ACCENTS[digest[0] % len(ACCENTS)]
+def zsh_prompt_accent(name: str) -> str:
+    machine = name.lower()
+    short_machine = machine.split(".", 1)[0]
+
+    if machine in KNOWN_MACHINE_ACCENTS:
+        return KNOWN_MACHINE_ACCENTS[machine]
+    if short_machine in KNOWN_MACHINE_ACCENTS:
+        return KNOWN_MACHINE_ACCENTS[short_machine]
+
+    try:
+        cksum = subprocess.check_output(
+            ["cksum"],
+            input=machine,
+            text=True,
+            stderr=subprocess.DEVNULL,
+        )
+        checksum = int(cksum.split()[0])
+        return ACCENTS[checksum % len(ACCENTS)]
+    except Exception:
+        digest = hashlib.sha1(machine.encode("utf-8")).digest()
+        return ACCENTS[digest[0] % len(ACCENTS)]
 
 
 def clean_destination(raw: str) -> str:
@@ -176,9 +200,9 @@ def main() -> int:
 
     remote = find_ssh_destination(pane_pid)
     if remote:
-        print(segment("ssh", remote, stable_accent(remote)))
+        print(segment("ssh", remote, zsh_prompt_accent(remote)))
     else:
-        print(segment("local", local_host, stable_accent(local_host)))
+        print(segment("local", local_host, zsh_prompt_accent(local_host)))
 
     return 0
 
