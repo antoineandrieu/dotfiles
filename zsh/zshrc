@@ -23,6 +23,10 @@ antigen theme dracula/zsh dracula
 
 antigen apply
 
+# Make completion matching case-insensitive, so lowercase input can match
+# candidates containing uppercase letters.
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+
 # Machine name is now displayed in tmux status line center with color
 
 sudo-command-line() {
