@@ -139,3 +139,4 @@ export PATH="$PNPM_HOME:$PATH"
 
 # opencode
 export PATH=/Users/antoine/.opencode/bin:$PATH
+export HERMES_TUI_RESUME=1
